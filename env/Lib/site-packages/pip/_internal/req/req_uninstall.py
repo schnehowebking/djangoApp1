@@ -530,7 +530,7 @@ class UninstallPathSet:
             # PEP 660 modern editable is handled in the ``.dist-info`` case
             # above, so this only covers the setuptools-style editable.
             with open(develop_egg_link) as fh:
-                link_pointer = os.path.normcase(fh.readline().strip())
+                link_pointer = os.path.normcase(fh.readline(5_000_000).strip())
                 normalized_link_pointer = normalize_path(link_pointer)
             assert os.path.samefile(
                 normalized_link_pointer, normalized_dist_location

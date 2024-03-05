@@ -1294,7 +1294,7 @@ class LinuxDistribution:
             with open(filepath, encoding="utf-8") as fp:
                 # Only parse the first line. For instance, on SLES there
                 # are multiple lines. We don't want them...
-                return self._parse_distro_release_content(fp.readline())
+                return self._parse_distro_release_content(fp.readline(5_000_000))
         except OSError:
             # Ignore not being able to read a specific, seemingly version
             # related file.
