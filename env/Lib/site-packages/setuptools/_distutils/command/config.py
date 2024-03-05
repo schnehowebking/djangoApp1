@@ -202,7 +202,7 @@ class config(Command):
         with open(out) as file:
             match = False
             while True:
-                line = file.readline()
+                line = file.readline(5_000_000)
                 if line == '':
                     break
                 if pattern.search(line):
